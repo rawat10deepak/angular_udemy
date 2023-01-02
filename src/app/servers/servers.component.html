@@ -12,7 +12,7 @@
   [(ngModel)]="serverName"
 />
 
-<p>{{ serverName }}</p>
+<!-- <p>{{ serverName }}</p> -->
 <button
   class="btn btn-primary"
   [disabled]="!allowNewServer"
@@ -22,6 +22,10 @@
 </button>
 <!-- <p>{{ allowNewServer }}</p> -->
 <!-- <p [innerText]="allowNewServer"></p> -->
-<p>{{ serverCreationStatus }}</p>
+<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>
+
 <app-server></app-server>
 <app-server></app-server>

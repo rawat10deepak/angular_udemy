@@ -11,20 +11,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css'],
 })
 export class ServersComponent implements OnInit {
-  allowNewServer = false;
+  allowNewServer = true;
   serverCreationStatus = 'No server was created!';
   serverName = '';
+  serverCreated = false;
 
   constructor() {
-    setTimeout(() => {
-      this.allowNewServer = true;
-    }, 2000);
+    this.serverCreationStatus = Math.random() > 0.5 ? 'online' : 'offline';
   }
 
   ngOnInit() {}
 
   onCreateServer() {
-    this.serverCreationStatus = 'Server was created!';
+    this.serverCreated = true;
+    this.serverCreationStatus =
+      'Server was created! Name is ' + this.serverName;
   }
 
   onUpdateServerName(event) {
