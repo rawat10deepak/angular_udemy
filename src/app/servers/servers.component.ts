@@ -15,15 +15,15 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No server was created!';
   serverName = '';
   serverCreated = false;
+  servers = ['test server', 'test server2'];
 
-  constructor() {
-    this.serverCreationStatus = Math.random() > 0.5 ? 'online' : 'offline';
-  }
+  constructor() {}
 
   ngOnInit() {}
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus =
       'Server was created! Name is ' + this.serverName;
   }
